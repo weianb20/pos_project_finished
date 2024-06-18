@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Error</title>
+    <style>
+        body {
+            background-color: #1f2538;
+            color: #d8cea2;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding-top: 50px;
+        }
+
+        .error-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #d8cea2;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            margin-bottom: 20px;
+            color: #302536;
+        }
+
+        p {
+            margin-bottom: 30px;
+            color: #302536;
+        }
+
+        .link-button {
+            display: inline-block;
+            background-color: #302536;
+            color: #d8cea2;
+            border: none;
+            padding: 12px 24px;
+            margin-right: 10px;
+            border-radius: 5px;
+            text-decoration: none;
+            cursor: pointer;
+            font-size: 1.1em;
+            transition: background-color 0.3s ease;
+        }
+
+        .link-button:hover {
+            background-color: #464a5f;
+        }
+    </style>
+</head>
+<body>
+    <div class="error-container">
+        <h1>Oops! Something went wrong.</h1>
+        <p>We encountered an error. Please try again later.</p>
+
+        <a class="link-button" href="/login">Login</a>
+        <a class="link-button" href="/register">Register</a>
+    </div>
+</body>
+</html>

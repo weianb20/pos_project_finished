@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Skin</title>
+    <style>
+        body {
+            background-color: #1f2538;
+            color: #d8cea2;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding-top: 50px;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #d8cea2;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            margin-bottom: 20px;
+            color: #302536;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+            color: #302536
+        }
+
+        input[type="text"], input[type="number"], select {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 15px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        input[type="checkbox"] {
+            margin-top: 10px;
+        }
+
+        button {
+            background-color: #302536;
+            color: #d8cea2;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+        }
+
+        button:hover {
+            background-color: #464a5f;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Add Skin</h1>
+        <form th:object="${skin}" th:action="@{/admin/addSkin}" method="post">
+            <label>Champion Name</label>
+            <input type="text" th:field="*{champName}" placeholder="Enter champion name" />
+            <p th:if="${#fields.hasErrors('champName')}" th:errors="*{champName}" class="error"></p>
+
+            <label>Skin ID</label>
+            <input type="number" th:field="*{skinID}" placeholder="Enter skin ID" id="skinID"/>
+            <p th:if="${#fields.hasErrors('skinID')}" th:errors="*{skinID}" class="error"></p>
+
+            <label>Skin Name</label>
+            <input type="text" th:field="*{skinName}" placeholder="Enter skin name" />
+            <p th:if="${#fields.hasErrors('skinName')}" th:errors="*{skinName}" class="error"></p>
+
+            <label>Chromas</label>
+            <select th:field="*{chromas}">
+                <option value="true">Yes</option>
+                <option value="false">No</option>
+            </select>
+
+            <label>Price (€)</label>
+            <input type="number" th:field="*{price}" step="0.01" placeholder="Enter price" />
+            <p th:if="${#fields.hasErrors('price')}" th:errors="*{price}" class="error"></p>
+
+            <button type="submit">Create Skin</button>
+        </form>
+    </div>
+</body>
+</html>
